@@ -1,3 +1,24 @@
+/********************************************************************
+Code Sample for Research Assistant Application
+
+Project: The Effect of the Universal Two-Child Policy on Women’s Health in China
+Author: Yajie Sun
+Data: China Family Panel Studies (CFPS) 2012–2020
+
+Description:
+This code performs the following steps:
+1. Clean CFPS individual and household survey modules
+2. Construct demographic, health, and socioeconomic variables
+3. Build panel dataset across survey waves
+4. Estimate policy effects using Difference-in-Differences models
+5. Conduct robustness and heterogeneity analyses
+
+Note:
+Raw data are not included due to confidentiality restrictions.
+
+********************************************************************/
+
+
 /*change the storage path*/
 cd"C:\Users\yajie\OneDrive\Desktop\research\CFPS data"
 /*2012 data processing*/
@@ -1372,6 +1393,7 @@ xtreg mental_score t2016 treat3 onekid age educ income urban/*
 est store rob4
 esttab rob1 rob2 rob3 rob4 using "robust.rtf", se replace b(3) se(3) star(* 0.10 ** 0.05 *** 0.01) stats(r2 N, labels("R-squared" "Observations")) ///
 title("Table 9") label
+
 
 
 
